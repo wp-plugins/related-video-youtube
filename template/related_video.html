@@ -1,0 +1,28 @@
+
+<?php 
+
+
+ $termino = get_post_meta($post->ID, 'tags_youtube', true);
+ $activo = get_post_meta($post->ID, 'related_video', true);
+ $titulo = get_post_meta($post->ID, 'title_youtube', true);
+ $creditos='<a href="http://nexxuz.com/related-video.html" style="font-size:7px;float:left">Related Video</a>';
+if( $activo =='' || $activo==1){
+	if (is_single() && !is_home()) {
+		if (!$termino ==''){
+		$script_div='<h3>'.$titulo.'</h3><a href="#"><div id="videoBar-bar">Loading...</div></a><script>LoadVideoBar("'.$termino.'");</script>';
+		$content= $content.$script_div.$creditos;
+		//echo $sharex;
+
+		
+		
+		}
+		else{
+		$termino=get_the_title();
+		$script_div='<h3>'.$titulo.'</h3><a href="#"><div id="videoBar-bar">Loading...</div></a><script>LoadVideoBar("'.$termino.'");</script>';
+		$content= $content.$script_div.$creditos;
+		}
+	
+		
+}
+}
+?>
